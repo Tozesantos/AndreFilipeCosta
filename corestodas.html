@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vagabas</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /*
+    :root {
+      --gold1: #f3d38a;
+      --gold2: #c79b4b;
+      --brown1: #4a1205;
+      --brown2: #8a3b14;
+    }*/
+    /*
+     :root {
+      --gold1: #ffd700;
+      --gold2: #b8860b;
+      --brown1: #0f0f0f;
+      --brown2: #262626;
+      --botao1: #ffd700;
+      --botao2: #b8860b;
+    }*/
+    /*Roinhaaa*/
+    
+     :root {
+      --gold1: #eab8a0;
+      --gold2: #b57e6a;
+      --brown1: #2d0b1e;
+      --brown2: #5a1e3c;
+      --botao1: #eab8a0;
+      --botao2: #b57e6a;
+    }
+    /*Verde*/
+    /*
+     :root {
+      --gold1: #e0e0e0;
+      --gold2: #a6a6a6;
+      --brown1: #041a12;
+      --brown2: #0a3d2e;
+      --botao1: #e0e0e0;
+      --botao2: #a6a6a6;
+    }*/
+       /*aZUL*/
+    /*
+     :root {
+      --gold1: #f4a261;
+      --gold2: #bc6c25;
+      --brown1: #0a1128;
+      --brown2: #0a1128;
+      --botao1: #f4a261;
+      --botao2: #bc6c25;
+    }
+    /* LAVANDA IMPERIAL */
+    /*
+    :root {
+      --gold1: #e0c3fc; 
+      --gold2: #8e94f2; 
+      --brown1: #1a1a2e;
+      --brown2: #2d1b33;
+      --botao1: #8e94f2;
+      --botao2: #54567f;
+    }*/
+    /* OCEAN MIST */
+    /*:root {
+      --gold1: #ade8f4; 
+      --gold2: #48cae4; 
+      --brown1: #023e8a; 
+      --brown2: #001219; 
+      --botao1: #0077b6;
+      --botao2: #023e8a;
+    }*/
+    /* FOREST VELVET */
+   /* :root {
+      --gold1: #d8e2dc; 
+      --gold2: #99a1a6; 
+      --brown1: #081c15; 
+      --brown2: #1b4332; 
+      --botao1: #2d6a4f;
+      --botao2: #081c15;
+    }*/
+    /* DUSTY MAUVE & TAUPE */
+    /* CARAMEL MACCHIATO */
+    /*:root {
+      --gold1: #f5d7b7; 
+      --gold2: #f0c59e;  
+      --brown1: #7f4c1d; 
+      --brown2: #452811;
+      --botao1: #f0c59e; 
+    }*/
+    /* BLUSH & WINE */
+   /* :root {
+      --gold1: #ffcfcf; 
+      --gold2: #ffbaba; 
+      --brown1: #311111; 
+      --brown2: #461919; 
+      --botao1: #e895a2; 
+      --botao2: #c77b8c; 
+    }*/
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, var(--brown2), var(--brown1));
+    }
+
+    .card {
+      text-align: center;
+      color: white;
+    }
+
+    /* AVATAR */
+    .avatar-wrap {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 20px;
+      
+      /* Adiciona estas 3 linhas para centrar a foto: */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ANEL DOURADO A GIRAR */
+    .rotating-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 150px;
+      height: 150px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+
+      background: conic-gradient(
+        var(--gold1),
+        var(--gold2),
+        var(--gold1),
+        var(--gold2),
+        var(--gold1)
+      );
+
+      animation: spin 6s linear infinite;
+      filter: blur(1px);
+      box-shadow: 0 0 20px rgba(255,215,120,0.6);
+    }
+
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* IMAGEM */
+    .avatar {
+      position: relative;
+      z-index: 2;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #2b0d05;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    /* TEXTO */
+    .name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
+      color: var(--gold1);
+      margin-bottom: 10px;
+      text-transform: lowercase;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #f3d38a;
+      opacity: 0.8;
+      margin-bottom: 40px;
+    }
+
+    /* BOTÃO */
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 40px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, var(--botao1), var(--botao2));
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="avatar-wrap">
+    <div class="rotating-ring"></div>
+    <!-- 🔥 METE AQUI A TUA IMAGEM -->
+    <img class="avatar" src="dezinho.png" alt="foto" />
+  </div>
+
+  <div class="name">andrefrcosta</div>
+  <div class="subtitle">É isto que vocês tanto me pedem Vagabas!!!</div>
+
+  <a href="#" class="cta-btn">ACESSO AQUI</a>
+
+</div>
+
+</body>
+</html>

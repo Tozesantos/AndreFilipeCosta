@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vagabas</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+   :root {
+      --gold1: #e0e0e0;
+      --gold2: #a6a6a6;
+      --brown1: #041a12;
+      --brown2: #0a3d2e;
+      --botao1: #e0e0e0;
+      --botao2: #a6a6a6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, var(--brown2), var(--brown1));
+      overflow: hidden; /* Evita scrolls desnecessários */
+    }
+
+    .card {
+      text-align: center;
+      color: white;
+      width: 100%;
+      max-width: 500px; /* Garante que não estique demais em ecrãs gigantes */
+      padding: 20px;
+    }
+
+    /* AVATAR AUMENTADO */
+    .avatar-wrap {
+      position: relative;
+      width: 180px; /* Aumentado de 140 para 180 */
+      height: 180px;
+      margin: 0 auto 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rotating-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 195px; /* Acompanha o aumento */
+      height: 195px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: conic-gradient(var(--gold1), var(--gold2), var(--gold1), var(--gold2), var(--gold1));
+      animation: spin 6s linear infinite;
+      filter: blur(1px);
+      box-shadow: 0 0 30px rgba(234, 184, 160, 0.4);
+    }
+
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .avatar {
+      position: relative;
+      z-index: 2;
+      width: 150px; /* Aumentado de 110 para 150 */
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #2b0d05;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* TEXTO AUMENTADO */
+    .name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8rem; /* Aumentado de 2.2 para 2.8 */
+      color: var(--gold1);
+      margin-bottom: 15px;
+      text-transform: lowercase;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem; /* Aumentado ligeiramente */
+      color: #f3d38a;
+      opacity: 0.9;
+      margin-bottom: 50px;
+    }
+
+   /* BOTÃO COM SALTO LATERAL + PAUSA */
+    .cta-btn {
+      display: inline-block;
+      padding: 22px 70px;
+      border-radius: 25px;
+      background: linear-gradient(145deg, var(--botao1), var(--botao2));
+      color: #2d0b1e; 
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.6rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      
+      /* Aumentamos para 2s: 1s de movimento + 1s de pausa */
+      animation: salto_com_pausa 2s infinite ease-in-out;
+      
+      transition: all 0.3s ease;
+      will-change: transform;
+    }
+
+    /* ANIMAÇÃO: MOVIMENTO ATÉ AOS 50%, PARADO DOS 50% AOS 100% */
+    @keyframes salto_com_pausa {
+      0% { transform: translateX(0) scale(1); }
+      12% { transform: translateX(-100px) rotate(-10deg); }
+      25% { transform: translateX(0) scale(1); } /* Pulsação no meio */
+      37% { transform: translateX(15px) rotate(2deg); }
+      50% { transform: translateX(0) scale(1); } /* Volta ao centro e para */
+
+      /* De 50% a 100% o botão não se mexe (Pausa de 1 segundo) */
+      100% { transform: translateX(0) scale(1); }
+    }
+
+    .cta-btn:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;"> <div class="card">
+  <div class="avatar-wrap">
+    <div class="rotating-ring"></div>
+    <img class="avatar" src="dezinho.png" alt="foto" />
+  </div>
+
+  <div class="name">andrefrcosta</div>
+  <div class="subtitle">É isto que vocês tanto me pedem Vagabas!!!</div>
+
+  <a href="#" class="cta-btn">ACESSO AQUI</a>
+</div>
+
+<script>
+  // Bloqueia F12, Ctrl+Shift+I, Ctrl+U
+  document.onkeydown = function(e) {
+    if(e.keyCode == 123) return false;
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false;
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+  };
+</script>
+
+</body>
+</html>
